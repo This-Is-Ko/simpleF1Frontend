@@ -3,27 +3,36 @@ import { Card, CardContent, Typography } from '@mui/material';
 
 function RaceInfo(props) {
     return (
-        <Card sx={{ boxShadow: 0, paddingBottom: 10 }}>
+        <Card sx={{ boxShadow: 0, paddingBottom: 5 }}>
             <Typography variant="h4" component="div">
                 <strong>Race</strong>
             </Typography>
-            <CardContent>
-                <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                    {props.raceInfo.country}
-                </Typography>
-                <Typography variant="h5" component="div">
-                    {props.raceInfo.track}
-                </Typography>
-                <Typography color="text.secondary">
-                    Local time: {props.raceInfo.racetime}
-                </Typography>
-                <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                    Your time: {props.raceInfo.racetime}
-                </Typography>
-                <Typography variant="body2">
-                    {props.raceInfo.trackDescription}
-                </Typography>
-            </CardContent>
+            {("country" in props.raceInfo) ?
+                <CardContent>
+                    <Typography component="div">
+                        City: {props.raceInfo.city}
+                    </Typography>
+                    <Typography>
+                        Country: {props.raceInfo.country}
+                    </Typography>
+                    <Typography>
+                        Date: {props.raceInfo.date}
+                    </Typography>
+                    <Typography>
+                        Time: {props.raceInfo.time}
+                    </Typography>
+                    {/* TODO Convert time to user time */}
+                    <Typography>
+                        Your time: {props.raceInfo.raceDatetime}
+                    </Typography>
+                    <Typography variant="body2">
+                        {props.raceInfo.trackDescription}
+                    </Typography>
+                </CardContent>
+                : 
+                <CardContent></CardContent>
+            }
+            
         </Card>
     )
 }

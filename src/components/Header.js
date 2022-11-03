@@ -8,7 +8,7 @@ return (
                 <strong>Simple F1</strong>
         </Typography>
         <Typography variant="h1" component="div">
-                <strong>{props.raceInfo.raceName}</strong>
+            {(props.raceInfo !== undefined) ? <strong>{props.raceInfo.name}</strong> : <strong>Grand Prix</strong>}
         </Typography>
     </header>
     );

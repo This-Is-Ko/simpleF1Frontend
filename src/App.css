@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  width: 90%;
+  /* width: 90%; */
 }
 
 .App-logo {
@@ -38,22 +38,42 @@
   }
 }
 
-/* body {
-  background-color: #121212;
+body {
+  /* background-color: #191f25; */
   color: #E1E1E1;
-} */
+}
 
 header {
   padding-top: 20px;
-  padding-bottom: 50px;
+  padding-bottom: 20px;
+  background-color: #04789a;
+}
+
+.content {
+  width: 90%;
+  padding-top: 10px;
+  margin: auto;
 }
 
 .column {
-  /* float: left; */
   display: inline-block;
   vertical-align: top;
   width: 30%;
   padding: 15px;
+}
+
+.team-logo {
+  width: 20px;
+}
+
+.results-table {
+  padding-bottom: 5%;
+}
+
+.standings-table {
+  padding-bottom: 5vh;
+  max-height: 25vh;
+  /* overflow-y: scroll; */
 }
 
 .weather-column {
@@ -65,4 +85,15 @@ header {
 
 .custom-card {
   box-shadow: 0;
+}
+
+.track-map{
+  max-width:100%;
+  max-height:100%;
+}
+
+@media screen and (max-width: 800px) {
+  .column {
+    width: 90%;
+  }
 }
