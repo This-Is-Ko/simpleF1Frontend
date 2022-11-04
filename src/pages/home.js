@@ -80,7 +80,7 @@ const raceInfo = {
 const trackInfo = {
     "name":  "Autodromo Hermanos Rodriguez",
     "map": "https://www.formula1.com/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Australia_Circuit.png.transform/9col/image.png",
-    "trackDescription": "A track in Mexico with turns ....",
+    "description": "A track in Mexico with turns ....",
     "turns": "15",
     "laps": "50",
     "distance": "100"

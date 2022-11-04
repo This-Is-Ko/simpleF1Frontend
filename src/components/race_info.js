@@ -2,6 +2,10 @@ import React from 'react';
 import { Card, CardContent, Typography } from '@mui/material';
 
 function RaceInfo(props) {
+
+    var localDate = new Date(props.raceInfo.dateTimeUtc);
+    console.log(localDate)
+
     return (
         <Card sx={{ boxShadow: 0, paddingBottom: 5 }}>
             <Typography variant="h4" component="div">
@@ -16,14 +20,11 @@ function RaceInfo(props) {
                         Country: {props.raceInfo.country}
                     </Typography>
                     <Typography>
-                        Date: {props.raceInfo.date}
-                    </Typography>
-                    <Typography>
-                        Time: {props.raceInfo.time}
+                        Local: {props.raceInfo.raceDateTime}
                     </Typography>
                     {/* TODO Convert time to user time */}
                     <Typography>
-                        Your time: {props.raceInfo.raceDatetime}
+                        Your time: {localDate.toUTCString()}
                     </Typography>
                     <Typography variant="body2">
                         {props.raceInfo.trackDescription}

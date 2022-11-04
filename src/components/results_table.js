@@ -8,17 +8,6 @@ import TableRow from '@mui/material/TableRow';
 import Card from '@mui/material/Card';
 import { Typography } from '@mui/material';
 
-import AlfaRomeo from './../assets/logos/AlfaRomeo.png'
-import AlphaTauri from './../assets/logos/AlphaTauri.png'
-import AlpineF1Team from './../assets/logos/AlpineF1Team.png'
-import AstonMartin from './../assets/logos/AstonMartin.png'
-import Ferrari from './../assets/logos/Ferrari.png'
-import HaasF1Team from './../assets/logos/HaasF1Team.png'
-import McLaren from './../assets/logos/McLaren.png'
-import Mercedes from './../assets/logos/Mercedes.png'
-import RedBull from './../assets/logos/RedBull.png'
-import Williams from './../assets/logos/Williams.png'
-
 function ResultsTable(props) {
     const TEAM_LOGO_BASE_LOCATION = "../assets/logos/";
 
@@ -42,17 +31,21 @@ function ResultsTable(props) {
                     {props.raceResults.map((resultEntry) => (
                         <TableRow
                             key={resultEntry.position}
-                            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                            >
+                            sx={{ '&:last-child td, &:last-child th': { border: 0 },
+                                ...(resultEntry.fastestLap !== "" && {
+                                    backgroundColor: '#9b0ec9',
+                                })
+                            }}
+                        >
                             <TableCell component="th" scope="row">
                                 {resultEntry.position}
                             </TableCell>
                             <TableCell align="center" sx={{ paddingX: 0}}>
                                 <img className='team-logo' alt={resultEntry.teamLogoAlt} src={process.env.PUBLIC_URL + '/assets/logos/' + resultEntry.teamLogoUri + '.png'}/>
                             </TableCell>
-                            <TableCell>{resultEntry.name}</TableCell>
-                            <TableCell align="right">{resultEntry.time}</TableCell>
-                            <TableCell align="right">{resultEntry.points}</TableCell>
+                            <TableCell sx={{...(resultEntry.fastestLap !== "" && {color: 'white',})}}>{resultEntry.name}</TableCell>
+                            <TableCell align="right" sx={{...(resultEntry.fastestLap !== "" && {color: 'white',})}}>{resultEntry.time}</TableCell>
+                            <TableCell align="right" sx={{...(resultEntry.fastestLap !== "" && {color: 'white',})}}>{resultEntry.points}</TableCell>
                         </TableRow>
                     ))}
                 </TableBody>

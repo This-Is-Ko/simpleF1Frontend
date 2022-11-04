@@ -9,7 +9,7 @@ function TrackInfo(props) {
             </Typography>
             {("name" in props.trackInfo) ?
                 <CardContent>
-                    <img className="track-map" alt="Track map" src={props.trackInfo.map}/>
+                    <img className="track-map" alt="Track map" src={props.trackInfo.mapUri}/>
                     <Typography variant="h5" component="div">
                         {props.trackInfo.name}
                     </Typography>
@@ -23,7 +23,7 @@ function TrackInfo(props) {
                         Distance: {props.trackInfo.distance}km
                     </Typography>
                     <Typography variant="body2">
-                        {props.trackInfo.trackDescription}
+                        {props.trackInfo.description}
                     </Typography>
                 </CardContent>
                 :
