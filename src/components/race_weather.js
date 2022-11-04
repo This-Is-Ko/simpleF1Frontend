@@ -16,6 +16,9 @@ function RaceWeather(props) {
                             Qualifying
                         </Typography>
                         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+                            {props.raceWeather.qualifyingTemp}
+                        </Typography>
+                        <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
                             {props.raceWeather.qualifying}
                         </Typography>
                     </div>
@@ -23,6 +26,9 @@ function RaceWeather(props) {
                         <WiDaySunny size={80} color='#000'/>
                         <Typography variant="h5" component="div">
                             Race
+                        </Typography>
+                        <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+                            {props.raceWeather.raceTemp}
                         </Typography>
                         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
                             {props.raceWeather.race}
