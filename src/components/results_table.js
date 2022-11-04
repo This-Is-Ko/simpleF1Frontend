@@ -12,12 +12,12 @@ function ResultsTable(props) {
     const TEAM_LOGO_BASE_LOCATION = "../assets/logos/";
 
     return (
-      <div className="results-table">
-        <TableContainer component={Card} sx={{ boxShadow: 0 }}>
-            <Typography variant="h4" component="div">
+      <Card className="results-table" sx={{ boxShadow: 0, paddingBottom: 5 }}>
+        <Typography variant="h4" component="div">
                 <strong>Results</strong>
             </Typography>
-            <Table sx={{ minWidth: 350 }} stickyHeader size="small" aria-label="simple table">
+        <TableContainer component={Card} sx={{ boxShadow: 0, height:"80vh",  overflowY: "auto" }}>
+            <Table sx={{ minWidth: 300 }} stickyHeader size="small" aria-label="simple table">
                 <TableHead>
                     <TableRow>
                         <TableCell></TableCell>
@@ -51,7 +51,7 @@ function ResultsTable(props) {
                 </TableBody>
             </Table>
         </TableContainer>
-      </div>
+      </Card>
     );
 }
 

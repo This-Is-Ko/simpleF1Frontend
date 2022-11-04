@@ -3,11 +3,13 @@ import { Card, CardContent, Typography } from '@mui/material';
 
 function RaceInfo(props) {
 
-    var localDate = new Date(props.raceInfo.dateTimeUtc);
-    console.log(localDate)
+    var userDateTime = new Date(props.raceInfo.dateTimeUtc);
+    var raceDateTime = (new Date(props.raceInfo.raceDateTime)).toLocaleString();
+    var date = (raceDateTime.split(", "))[0]
+    var time = (raceDateTime.split(", "))[1]
 
     return (
-        <Card sx={{ boxShadow: 0, paddingBottom: 5 }}>
+        <Card sx={{ boxShadow: 0, paddingBottom: 0 }}>
             <Typography variant="h4" component="div">
                 <strong>Race</strong>
             </Typography>
@@ -20,11 +22,13 @@ function RaceInfo(props) {
                         Country: {props.raceInfo.country}
                     </Typography>
                     <Typography>
-                        Local: {props.raceInfo.raceDateTime}
+                        Date: {date}
                     </Typography>
-                    {/* TODO Convert time to user time */}
                     <Typography>
-                        Your time: {localDate.toUTCString()}
+                        Time: {time}
+                    </Typography>
+                    <Typography variant="caption">
+                        Local: {userDateTime.toLocaleString()}
                     </Typography>
                     <Typography variant="body2">
                         {props.raceInfo.trackDescription}
@@ -33,7 +37,6 @@ function RaceInfo(props) {
                 : 
                 <CardContent></CardContent>
             }
-            
         </Card>
     )
 }

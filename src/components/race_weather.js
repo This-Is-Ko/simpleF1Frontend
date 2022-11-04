@@ -4,7 +4,7 @@ import { WiDaySunny } from 'weather-icons-react';
 
 function RaceWeather(props) {
     return (
-        <Card sx={{ boxShadow: 0, paddingBottom: 5 }}>
+        <Card sx={{ boxShadow: 0, paddingBottom: 0 }}>
             <Typography variant="h4" component="div">
                 <strong>Weather</strong>
             </Typography>
