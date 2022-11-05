@@ -30,10 +30,10 @@ function RaceInfo(props) {
                                             key={index}
                                             sx={{ '&:last-child td, &:last-child th': { border: 0 },}}
                                         >
-                                            <TableCell component="th" scope="row">
+                                            <TableCell align="left" component="th" scope="row" width="50%" sx={{paddingLeft:"25%"}}>
                                                 <strong>{capitalise(key)}</strong>
                                             </TableCell>
-                                            <TableCell>
+                                            <TableCell align="left">
                                                 {props.raceInfo[key]}
                                             </TableCell>
                                         </TableRow>
@@ -48,10 +48,10 @@ function RaceInfo(props) {
                                             key={index}
                                             sx={{ '&:last-child td, &:last-child th': { border: 0 },}}
                                         >
-                                            <TableCell component="th" scope="row">
+                                            <TableCell align="left" component="th" scope="row" width="50%" sx={{paddingLeft:"25%"}}>
                                                 <strong>{capitalise(key)}</strong>
                                             </TableCell>
-                                            <TableCell>
+                                            <TableCell align="left">
                                                 {additionalData[key]}
                                             </TableCell>
                                         </TableRow>

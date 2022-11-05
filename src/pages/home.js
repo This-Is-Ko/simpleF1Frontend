@@ -11,6 +11,19 @@ import DriversChampionshipTable from '../components/drivers_championship_table';
 import ConstructorsChampionshipTable from '../components/constructors_championship_table';
 import axios from "axios";
 import useAxios from 'axios-hooks'
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+
+const theme = createTheme({
+    components: {
+      MuiTypography: {
+        styleOverrides: {
+          h4: {
+            fontFamily: "'Libre Franklin', sans-serif;",
+          },
+        },
+      },
+    },
+  });
 
 const raceResults = [
     {"position":"1", "name":"Max", "time":"1:20:10", "points":"25"},
@@ -131,6 +144,8 @@ function Home() {
       }, [])
 
     return (
+        <ThemeProvider theme={theme}>
+
         <div>
             <Header raceInfo={raceData.race}></Header>
             <div className='content'>
@@ -151,6 +166,7 @@ function Home() {
             </div>
             <Footer></Footer>
         </div>
+        </ThemeProvider>
     );
 };
 export default Home;

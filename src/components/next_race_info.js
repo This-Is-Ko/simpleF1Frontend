@@ -19,27 +19,6 @@ function NextRaceInfo(props) {
                 <strong>Upcoming</strong>
             </Typography>
             {("country" in props.nextRaceInfo) ?
-                // <CardContent>
-                //     <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                //         {props.nextRaceInfo.country}
-                //     </Typography>
-                //     <Typography variant="h5" component="div">
-                //         {props.nextRaceInfo.track}
-                //     </Typography>
-                //     <Typography color="text.secondary">
-                //         Date: {date}
-                //     </Typography>
-                //     <Typography color="text.secondary">
-                //         Lights out: {time}
-                //     </Typography>
-                //     <Typography variant="caption">
-                //         Local: {userDateTime.toLocaleString()}
-                //     </Typography>
-                //     <Typography variant="body2">
-                //         {props.nextRaceInfo.trackDescription}
-                //     </Typography>
-                // </CardContent>
-
                 <TableContainer component={Card} sx={{ boxShadow: 0, overflowY: "auto" }}>
                     <Table sx={{ minWidth: 300 }} stickyHeader size="small" aria-label="simple table">
                         <TableBody>
@@ -50,10 +29,10 @@ function NextRaceInfo(props) {
                                             key={index}
                                             sx={{ '&:last-child td, &:last-child th': { border: 0 },}}
                                         >
-                                            <TableCell component="th" scope="row">
+                                            <TableCell align="left" component="th" scope="row" width="50%" sx={{paddingLeft:"25%"}}>
                                                 <strong>{capitalise(key)}</strong>
                                             </TableCell>
-                                            <TableCell>
+                                            <TableCell align="left" width="50%">
                                                 {props.nextRaceInfo[key]}
                                             </TableCell>
                                         </TableRow>
@@ -68,10 +47,10 @@ function NextRaceInfo(props) {
                                             key={index}
                                             sx={{ '&:last-child td, &:last-child th': { border: 0 },}}
                                         >
-                                            <TableCell component="th" scope="row">
-                                            <strong>{capitalise(key)}</strong>
+                                            <TableCell align="left" component="th" scope="row" width="50%" sx={{paddingLeft:"25%"}}>
+                                                <strong>{capitalise(key)}</strong>
                                             </TableCell>
-                                            <TableCell>
+                                            <TableCell align="left" width="50%">
                                                 {additionalData[key]}
                                             </TableCell>
                                         </TableRow>
