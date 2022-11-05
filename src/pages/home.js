@@ -10,7 +10,6 @@ import TrackInfo from '../components/track_info';
 import DriversChampionshipTable from '../components/drivers_championship_table';
 import ConstructorsChampionshipTable from '../components/constructors_championship_table';
 import axios from "axios";
-import useAxios from 'axios-hooks'
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 const theme = createTheme({
@@ -133,7 +132,8 @@ function Home() {
     });
     
     useEffect(() => {
-        axios.get("http://127.0.0.1:8000/api/latest")
+        console.log(process.env.REACT_APP_API_URI + "/api/latest")
+        axios.get(process.env.REACT_APP_API_URI + "/api/latest")
           .then(
             (response) => {
                 setIsLoaded(true);
@@ -145,8 +145,6 @@ function Home() {
 
     return (
         <ThemeProvider theme={theme}>
-
-        <div>
             <Header raceInfo={raceData.race}></Header>
             <div className='content'>
                 <div className='column'>
@@ -165,7 +163,6 @@ function Home() {
                 </div>
             </div>
             <Footer></Footer>
-        </div>
         </ThemeProvider>
     );
 };
