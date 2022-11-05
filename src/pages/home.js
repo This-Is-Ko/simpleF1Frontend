@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 import ResultsTable from "../components/results_table";
 import RaceInfo from "../components/race_info";
 import NextRaceInfo from '../components/next_race_info';
@@ -148,6 +149,7 @@ function Home() {
                     <NextRaceInfo nextRaceInfo={raceData.nextRace}/>
                 </div>
             </div>
+            <Footer></Footer>
         </div>
     );
 };

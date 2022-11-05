@@ -8,16 +8,15 @@ function Highlights(props) {
                 <strong>Highlights</strong>
             </Typography>
             <CardContent>
-                {("link" in props.raceHighlights) ?
+                {("uri" in props.raceHighlights && props.raceHighlights.uri !== "") ?
                     <iframe
-                        src={props.raceHighlights.link}
+                        src={props.raceHighlights.uri}
                         title="race highlights">
                     </iframe>
                     :
-                    <iframe
-                        src="#"
-                        title="race highlights">
-                    </iframe>
+                    <Typography variant="subtitle" component="div">
+                        Official highlights for this race haven't been released
+                    </Typography>
                 }
             </CardContent>
         </Card>

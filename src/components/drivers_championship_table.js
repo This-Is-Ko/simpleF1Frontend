@@ -14,7 +14,7 @@ function DriversChampionshipTable(props) {
             <Typography variant="h4" component="div">
                 <strong>Drivers' Championship</strong>
             </Typography> 
-            <TableContainer component={Card} sx={{ boxShadow: 0, height:"25vh",  overflowY: "auto" }}>
+            <TableContainer component={Card} sx={{ boxShadow: 0, height:"27vh",  overflowY: "auto" }}>
                 <Table sx={{ minWidth: 300 }} stickyHeader size="small" aria-label="simple table">
                     <TableHead>
                         <TableRow>
@@ -28,7 +28,11 @@ function DriversChampionshipTable(props) {
                     {props.driverStandings.map((driverEntry) => (
                         <TableRow
                             key={driverEntry.position}
-                            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                            sx={{ '&:last-child td, &:last-child th': { border: 0 },
+                                '&.MuiTableRow-root:hover':{
+                                    backgroundColor: 'lightgrey' 
+                                }
+                             }}
                             >
                             <TableCell component="th" scope="row">
                                 {driverEntry.position}

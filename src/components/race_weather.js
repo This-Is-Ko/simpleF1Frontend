@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card, CardContent, Typography } from '@mui/material';
 import { WiDaySunny } from 'weather-icons-react';
+import WeatherIcon from './weather_icon';
 
 function RaceWeather(props) {
     return (
@@ -9,29 +10,29 @@ function RaceWeather(props) {
                 <strong>Weather</strong>
             </Typography>
             {("qualifying" in props.raceWeather) ?
-                <CardContent>
+                <CardContent sx={{ paddingTop: 0 }}>
                     <div className='weather-column'>
-                        <WiDaySunny size={80} color='#000'/>
+                        <WeatherIcon raceWeather={props.raceWeather.qualifying}/>
                         <Typography variant="h5" component="div">
                             Qualifying
                         </Typography>
                         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                            {props.raceWeather.qualifyingTemp}
+                            {props.raceWeather.qualifying.temp}
                         </Typography>
                         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                            {props.raceWeather.qualifying}
+                            {props.raceWeather.qualifying.type}
                         </Typography>
                     </div>
                     <div className='weather-column'>
-                        <WiDaySunny size={80} color='#000'/>
+                    <WeatherIcon raceWeather={props.raceWeather.race}/>
                         <Typography variant="h5" component="div">
                             Race
                         </Typography>
                         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                            {props.raceWeather.raceTemp}
+                            {props.raceWeather.race.temp}
                         </Typography>
                         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                            {props.raceWeather.race}
+                            {props.raceWeather.race.type}
                         </Typography>
                     </div>
                 </CardContent>
