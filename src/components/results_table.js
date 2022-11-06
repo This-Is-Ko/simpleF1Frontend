@@ -9,7 +9,7 @@ function ResultsTable(props) {
         <Typography variant="h4" component="div">
                 <strong>Results</strong>
             </Typography>
-        <TableContainer component={Card} sx={{ boxShadow: 0, height:"70vh",  overflowY: "auto" }}>
+        <TableContainer component={Card} sx={{ boxShadow: 0, height:{lg:"70vh",xl:"775px"},  overflowY: "auto" }}>
             <Table sx={{ minWidth: 300 }} stickyHeader size="small" aria-label="simple table">
                 <TableHead>
                     <TableRow>

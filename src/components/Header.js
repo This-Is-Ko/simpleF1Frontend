@@ -6,11 +6,15 @@ import { Typography } from '@mui/material';
 function Header(props) {
 return (
     <header>
-        <Typography variant="h4" component="div" sx={{ fontFamily:"'Libre Franklin', sans-serif;"}}>
+        <Typography component="div" sx={{ fontFamily:"'Libre Franklin', sans-serif;", typography: { sm: 'h4', xs: 'h5' }}}>
                 <strong>SIMPLE F1</strong>
         </Typography>
-        <Typography variant="h1" component="div" sx={{ fontFamily:"'Rubik', sans-serif;"}}>
-            {(props.raceInfo !== undefined) ? <strong>{props.raceInfo.name}</strong> : <strong>Grand Prix</strong>}
+        <Typography sx={{ fontFamily:"'Rubik', sans-serif;", typography: { sm: 'h1', xs: 'h3' }}}>
+            {(props.raceInfo !== undefined && props.raceInfo.name !== undefined) ?
+                <strong>{props.raceInfo.name}</strong>
+                :
+                <strong>Grand Prix</strong>
+            }
         </Typography>
     </header>
     );

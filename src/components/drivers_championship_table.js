@@ -14,7 +14,7 @@ function DriversChampionshipTable(props) {
             <Typography variant="h4" component="div">
                 <strong>Drivers' Championship</strong>
             </Typography> 
-            <TableContainer component={Card} sx={{ boxShadow: 0, height:"27vh",  overflowY: "auto" }}>
+            <TableContainer component={Card} sx={{ boxShadow: 0, height:"35vh",  overflowY: "auto" }}>
                 <Table sx={{ minWidth: 300 }} stickyHeader size="small" aria-label="simple table">
                     <TableHead>
                         <TableRow>

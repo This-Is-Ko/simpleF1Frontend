@@ -1,4 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import axios from "axios";
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import CircularProgress from '@mui/material/CircularProgress';
+
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import ResultsTable from "../components/results_table";
@@ -9,14 +13,16 @@ import Highlights from '../components/highlights';
 import TrackInfo from '../components/track_info';
 import DriversChampionshipTable from '../components/drivers_championship_table';
 import ConstructorsChampionshipTable from '../components/constructors_championship_table';
-import axios from "axios";
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { Typography } from '@mui/material';
 
 const theme = createTheme({
     components: {
       MuiTypography: {
         styleOverrides: {
           h4: {
+            fontFamily: "'Libre Franklin', sans-serif;",
+          },
+          subtitle1: {
             fontFamily: "'Libre Franklin', sans-serif;",
           },
         },
@@ -132,7 +138,6 @@ function Home() {
     });
     
     useEffect(() => {
-        console.log(process.env.REACT_APP_API_URI + "/api/latest")
         axios.get(process.env.REACT_APP_API_URI + "/api/latest")
           .then(
             (response) => {
@@ -142,6 +147,20 @@ function Home() {
           )
           .catch((error) => console.log("error: " + error))
       }, [])
+
+    if (!isLoaded) {
+        return (
+            <ThemeProvider theme={theme}>
+                <Header raceInfo={raceData.race}></Header>
+                <div className='content'>
+                    <div className='loading-container'>
+                        <CircularProgress size="4rem" sx={{color:"#04789a"}}/>
+                        <Typography variant="subtitle1" sx={{paddingTop:"10px", color:"black"}}>Calculating fast lap...</Typography>
+                    </div>
+                </div>
+            </ThemeProvider>
+        )
+    }
 
     return (
         <ThemeProvider theme={theme}>

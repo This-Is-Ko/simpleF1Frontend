@@ -10,6 +10,7 @@ function Highlights(props) {
             <CardContent>
                 {("uri" in props.raceHighlights && props.raceHighlights.uri !== "") ?
                     <iframe
+                        className='highlights-iframe'
                         src={props.raceHighlights.uri}
                         title="race highlights">
                     </iframe>
