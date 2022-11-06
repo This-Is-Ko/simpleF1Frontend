@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Typography } from '@mui/material';
 
-const loadingMessages = ["Starting formation lap...", "DRS enabled...", "Calculating fast lap..."];
+const loadingMessages = ["Starting formation lap...", "DRS enabled...", "Calculating fastest lap..."];
 
 function LoadingMessage() {
     const [loadingMessageIndex, setLoadingMessageIndex] = useState(0);
