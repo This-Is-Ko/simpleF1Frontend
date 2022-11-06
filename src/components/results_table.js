@@ -2,8 +2,6 @@ import React from 'react';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Card, Typography } from '@mui/material';
 
 function ResultsTable(props) {
-    const TEAM_LOGO_BASE_LOCATION = "../assets/logos/";
-
     return (
       <Card className="results-table" sx={{ boxShadow: 0, paddingBottom: 5 }}>
         <Typography variant="h4" component="div">

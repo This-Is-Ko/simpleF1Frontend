@@ -1,6 +1,5 @@
 import React from 'react';
 import { Card, CardContent, Typography } from '@mui/material';
-import { WiDaySunny } from 'weather-icons-react';
 import WeatherIcon from './weather_icon';
 
 function RaceWeather(props) {

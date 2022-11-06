@@ -1,4 +1,4 @@
-import { WiDaySunny, WiDaySunnyOvercast, WiDayCloudy, WiFog, WiRainMix, WiRain, WiSnow, WiShowers, WiThunderstorm } from 'weather-icons-react';
+import { WiDaySunny, WiDaySunnyOvercast, WiFog, WiRainMix, WiRain, WiSnow, WiShowers, WiThunderstorm } from 'weather-icons-react';
 
 function WeatherIcon(props) {
     switch (props.raceWeather.type) {

@@ -6,7 +6,7 @@ return (
     <footer>
         <Typography sx={{ color:"grey" }} variant="caption" component="div">
                 All images belong to their rightful owners&nbsp;&nbsp;|&nbsp;&nbsp;
-            <Link sx={{ color:"grey" }} variant="caption" underline="none" href="mailto:#">Contact</Link>
+            <Link sx={{ color:"grey" }} variant="caption" underline="none" href={"mailto:" + process.env.REACT_APP_CONTACT_EMAIL}>Contact</Link>
         </Typography>
     </footer>
     );
