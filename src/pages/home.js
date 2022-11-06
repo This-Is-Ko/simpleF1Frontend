@@ -5,6 +5,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import LoadingMessage from "../components/loading_message";
 import ResultsTable from "../components/results_table";
 import RaceInfo from "../components/race_info";
 import NextRaceInfo from '../components/next_race_info';
@@ -30,99 +31,6 @@ const theme = createTheme({
     },
   });
 
-const raceResults = [
-    {"position":"1", "name":"Max", "time":"1:20:10", "points":"25"},
-    {"position":"2", "name":"Max", "time":"1:20:10", "points":"25"},
-    {"position":"3", "name":"Max", "time":"1:20:10", "points":"25"},
-    {"position":"4", "name":"Max", "time":"1:20:10", "points":"25"},
-    {"position":"5", "name":"Max", "time":"1:20:10", "points":"25", "fastestLap": true},
-    {"position":"6", "name":"Max", "time":"1:20:10", "points":"25"},
-    {"position":"7", "name":"Max", "time":"1:20:10", "points":"25"},
-    {"position":"8", "name":"Max", "time":"1:20:10", "points":"25"},
-    {"position":"9", "name":"Max", "time":"1:20:10", "points":"25"},
-    {"position":"10", "name":"Max", "time":"1:20:10", "points":"25"},
-    {"position":"11", "name":"Max", "time":"1:20:10", "points":"25"},
-    {"position":"12", "name":"Max", "time":"1:20:10", "points":"25"},
-    {"position":"13", "name":"Max", "time":"1:20:10", "points":"25"},
-    {"position":"14", "name":"Max", "time":"1:20:10", "points":"25"},
-    {"position":"15", "name":"Max", "time":"1:20:10", "points":"25"},
-    {"position":"16", "name":"Max", "time":"1:20:10", "points":"25"},
-    {"position":"17", "name":"Max", "time":"1:20:10", "points":"25"},
-    {"position":"18", "name":"Max", "time":"1:20:10", "points":"25"},
-    {"position":"19", "name":"Max", "time":"1:20:10", "points":"25"},
-    {"position":"20", "name":"Max", "time":"DNF", "points":"25"}
-]
-
-const driverStandings = [
-    {"position":"1", "name":"Max", "points":"25"},
-    {"position":"2", "name":"Max", "points":"25"},
-    {"position":"3", "name":"Max", "points":"25"},
-    {"position":"4", "name":"Max", "points":"25"},
-    {"position":"5", "name":"Max", "points":"25"},
-    {"position":"6", "name":"Max", "points":"25"},
-    {"position":"7", "name":"Max", "points":"25"},
-    {"position":"8", "name":"Max", "points":"25"},
-    {"position":"9", "name":"Max", "points":"25"},
-    {"position":"10", "name":"Max", "points":"25"},
-    {"position":"11", "name":"Max", "points":"25"},
-    {"position":"12", "name":"Max", "points":"25"},
-    {"position":"13", "name":"Max", "points":"25"},
-    {"position":"14", "name":"Max", "points":"25"},
-    {"position":"15", "name":"Max", "points":"25"},
-    {"position":"16", "name":"Max", "points":"25"},
-    {"position":"17", "name":"Max", "points":"25"},
-    {"position":"18", "name":"Max", "points":"25"},
-    {"position":"19", "name":"Max", "points":"25"},
-    {"position":"20", "name":"Max", "points":"25"}
-]
-
-const constructorsStandings = [
-    {"position":"1", "name":"Red Bull Racing", "points":"25"},
-    {"position":"2", "name":"Max", "points":"25"},
-    {"position":"3", "name":"Max", "points":"25"},
-    {"position":"4", "name":"Max", "points":"25"},
-    {"position":"5", "name":"Max", "points":"25"},
-    {"position":"6", "name":"Max", "points":"25"},
-    {"position":"7", "name":"Max", "points":"25"},
-    {"position":"8", "name":"Max", "points":"25"},
-    {"position":"9", "name":"Max", "points":"25"},
-    {"position":"10", "name":"Max", "points":"25"}
-]
-
-const raceInfo = {
-    "name":  "Mexico City Grand Prix",
-    "city":  "Mexico",
-    "country":  "Mexico",
-    "raceDatetime": "time"
-}
-
-const trackInfo = {
-    "name":  "Autodromo Hermanos Rodriguez",
-    "map": "https://www.formula1.com/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Australia_Circuit.png.transform/9col/image.png",
-    "description": "A track in Mexico with turns ....",
-    "turns": "15",
-    "laps": "50",
-    "distance": "100"
-}
-
-const nextRaceInfo = {
-    "name":  "Mexico City Grand Prix",
-    "country":  "Mexico",
-    "track":  "Autodromo Hermanos Rodriguez",
-    "racetime": "time",
-    "localtime": "time",
-    "trackDescription": "A track in Mexico with turns ...."
-}
-
-const raceWeather = {
-    "qualifying": "Sunny",
-    "race": "Sunny"
-}
-
-const raceHighlights = {
-    "link": "https://www.youtube.com/embed/txuU3noS0H0"
-}
-
 function Home() {
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
@@ -139,13 +47,19 @@ function Home() {
     
     useEffect(() => {
         axios.get(process.env.REACT_APP_API_URI + "/api/latest")
-          .then(
-            (response) => {
-                setIsLoaded(true);
-                setRaceData(response.data);
-            }
-          )
-          .catch((error) => console.log("error: " + error))
+            .then(
+                (response) => {
+                    setIsLoaded(true);
+                    setRaceData(response.data);
+                }
+            )
+            .catch(
+                (error) => {
+                    console.log("error: " + error);
+                    setError(error);
+                    setIsLoaded(true);
+                }
+            )
       }, [])
 
     if (!isLoaded) {
@@ -155,7 +69,20 @@ function Home() {
                 <div className='content'>
                     <div className='loading-container'>
                         <CircularProgress size="4rem" sx={{color:"#04789a"}}/>
-                        <Typography variant="subtitle1" sx={{paddingTop:"10px", color:"black"}}>Calculating fast lap...</Typography>
+                        <LoadingMessage />
+                    </div>
+                </div>
+            </ThemeProvider>
+        )
+    } else if (error != null){
+        return (
+            <ThemeProvider theme={theme}>
+                <Header raceInfo={raceData.race}></Header>
+                <div className='content'>
+                    <div className='loading-container'>
+                        <CircularProgress size="4rem" sx={{color:"#04789a"}}/>
+                        <Typography variant="subtitle1" sx={{paddingTop:"10px", color:"black"}}>🚩 Red flag 🚩</Typography>
+                        <Typography variant="subtitle1" sx={{color:"black"}}>Please try again later</Typography>
                     </div>
                 </div>
             </ThemeProvider>

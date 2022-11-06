@@ -2,14 +2,13 @@ import React from 'react';
 import { Card, CardContent, Typography, TableContainer, Table, TableBody, TableRow, TableCell, Modal, Box } from '@mui/material';
 import capitalise from '../util/table_data_handler';
 
-const style = {
+const modalStyle = {
     position: 'absolute',
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
     width: 1000,
-    bgcolor: 'background.paper',
-    // boxShadow: 24,
+    bgcolor: 'background.paper'
   };
 
 function TrackInfo(props) {
@@ -29,7 +28,7 @@ function TrackInfo(props) {
                     aria-labelledby="modal-modal-title"
                     aria-describedby="modal-modal-description"
                 >
-                    <Box sx={style}>
+                    <Box sx={modalStyle}>
                         <img className="track-map-large" alt="Track map" src={props.trackInfo.mapUri}/>
                     </Box>
                 </Modal>
