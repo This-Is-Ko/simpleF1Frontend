@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import CircularProgress from '@mui/material/CircularProgress';
+import { Typography } from '@mui/material';
 
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -14,7 +15,6 @@ import Highlights from '../components/highlights';
 import TrackInfo from '../components/track_info';
 import DriversChampionshipTable from '../components/drivers_championship_table';
 import ConstructorsChampionshipTable from '../components/constructors_championship_table';
-import { Typography } from '@mui/material';
 
 const theme = createTheme({
     components: {

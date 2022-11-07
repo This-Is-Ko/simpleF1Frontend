@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Typography } from '@mui/material';
 
-const loadingMessages = ["Starting formation lap...", "DRS enabled...", "Calculating fastest lap..."];
+const loadingMessages = ["Starting formation lap...", "DRS enabled...", "Boxing for softs...", "Analysing strategies...", "Setting fastest lap..."];
 
 function LoadingMessage() {
     const [loadingMessageIndex, setLoadingMessageIndex] = useState(0);
@@ -9,7 +9,7 @@ function LoadingMessage() {
     useEffect(() => {
         let timeout;
         if (loadingMessageIndex < loadingMessages.length - 1) {
-            timeout = setTimeout(() => setLoadingMessageIndex(loadingMessageIndex + 1), 2000);
+            timeout = setTimeout(() => setLoadingMessageIndex(loadingMessageIndex + 1), 2500);
         }
         return () => {
             clearTimeout(timeout);
