@@ -13,6 +13,7 @@
     "axios-hooks": "^4.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-helmet": "^6.1.0",
     "react-scripts": "5.0.1",
     "typeface-archivo-black": "^1.1.13",
     "weather-icons-react": "^1.2.0",

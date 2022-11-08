@@ -3,6 +3,7 @@ import axios from "axios";
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import CircularProgress from '@mui/material/CircularProgress';
 import { Typography } from '@mui/material';
+import { Helmet } from "react-helmet";
 
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -65,6 +66,10 @@ function Home() {
     if (!isLoaded) {
         return (
             <ThemeProvider theme={theme}>
+                <Helmet>
+                    <title>Home | Simple F1</title>
+                    <meta name='description' content='View the latest F1 Grand Prix statistics including race results, track information and more'/>
+                </Helmet>
                 <Header raceInfo={raceData.race}></Header>
                 <div className='content'>
                     <div className='loading-container'>
@@ -77,6 +82,10 @@ function Home() {
     } else if (error != null){
         return (
             <ThemeProvider theme={theme}>
+                <Helmet>
+                    <title>Home | Simple F1</title>
+                    <meta name='description' content='View the latest F1 Grand Prix statistics including race results, track information and more'/>
+                </Helmet>
                 <Header raceInfo={raceData.race}></Header>
                 <div className='content'>
                     <div className='loading-container'>
@@ -90,6 +99,10 @@ function Home() {
 
     return (
         <ThemeProvider theme={theme}>
+            <Helmet>
+                <title>Home | Simple F1</title>
+                <meta name='description' content='View the latest F1 Grand Prix statistics including race results, track information and more'/>
+            </Helmet>
             <Header raceInfo={raceData.race}></Header>
             <div className='content'>
                 <div className='column'>
