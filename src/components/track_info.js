@@ -7,7 +7,11 @@ const modalStyle = {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: 1000,
+    width: {
+        xs: "90%",
+        sm:"90%",
+        lg:"1000px"
+    },
     bgcolor: 'background.paper'
   };
 
@@ -28,9 +32,7 @@ function TrackInfo(props) {
                     aria-labelledby="modal-modal-title"
                     aria-describedby="modal-modal-description"
                 >
-                    <Box sx={modalStyle}>
-                        <img className="track-map-large" alt="Track map" src={props.trackInfo.mapUri}/>
-                    </Box>
+                    <Box component="img" sx={modalStyle} alt="Track map" src={props.trackInfo.mapUri}/>
                 </Modal>
                 <img className="track-map" alt="Track map" src={props.trackInfo.mapUri} title={props.trackInfo.name + " Track Map"} onClick={handleOpen}/>
                 <Typography variant="subtitle2" sx={{ color: "grey"}}>
@@ -50,7 +52,7 @@ function TrackInfo(props) {
                                             sx={{ '&:last-child td, &:last-child th': { border: 0 },}}
                                         >
                                             <TableCell align="left" component="th" scope="row" width="60%" sx={{paddingLeft:"25%"}}>
-                                                <strong>{capitalise(key)}</strong>
+                                                <strong>{(key === "length" || key === "distance") ? capitalise(key + " (km)") : capitalise(key)}</strong>
                                             </TableCell>
                                             <TableCell align="left">
                                                 {props.trackInfo[key]}

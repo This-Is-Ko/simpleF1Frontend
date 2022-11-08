@@ -80,7 +80,6 @@ function Home() {
                 <Header raceInfo={raceData.race}></Header>
                 <div className='content'>
                     <div className='loading-container'>
-                        <CircularProgress size="4rem" sx={{color:"#04789a"}}/>
                         <Typography variant="subtitle1" sx={{paddingTop:"10px", color:"black"}}>🚩 Red flag 🚩</Typography>
                         <Typography variant="subtitle1" sx={{color:"black"}}>Please try again later</Typography>
                     </div>

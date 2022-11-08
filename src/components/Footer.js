@@ -1,14 +1,20 @@
 import React from 'react';
-import { Typography, Link } from '@mui/material';
+import { Typography } from '@mui/material';
+import MuiLink from '@mui/material/Link';
+import { Link } from "react-router-dom";
 
 function Footer(props) {
 return (
     <footer>
         <Typography sx={{ color:"grey" }} variant="caption" component="div">
-                All images belong to their rightful owners&nbsp;&nbsp;|&nbsp;&nbsp;
-            <Link sx={{ color:"grey" }} variant="caption" underline="none" href={"https://www.flaticon.com/free-icons/car"}>Icons by Smashicons</Link>
-                &nbsp;&nbsp;|&nbsp;&nbsp;
-            <Link sx={{ color:"grey" }} variant="caption" underline="none" href={"mailto:" + process.env.REACT_APP_CONTACT_EMAIL}>Contact</Link>
+            <Link className="footer-links" to="/">Simple F1</Link>
+            &nbsp;&nbsp;|&nbsp;&nbsp;
+            <Link className="footer-links" to="/about">About</Link>
+            &nbsp;&nbsp;|&nbsp;&nbsp;
+            <MuiLink sx={{ color:"grey" }} variant="caption" underline="none" href={"mailto:" + process.env.REACT_APP_CONTACT_EMAIL}>Contact</MuiLink>
+        </Typography>
+        <Typography sx={{ color:"grey" }} variant="caption" component="div">
+            All images belong to their rightful owners
         </Typography>
     </footer>
     );
