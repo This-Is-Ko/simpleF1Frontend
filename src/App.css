@@ -63,6 +63,12 @@ header {
   width: 20px;
 }
 
+.position-change-arrow {
+  width: 20px;
+  /* padding-right: 10px; */
+  float: left;
+}
+
 .standings-table {
   padding-bottom: 5vh;
   max-height: 25vh;

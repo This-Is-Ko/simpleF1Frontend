@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, CardContent, Typography, TableContainer, Table, TableBody, TableRow, TableCell } from '@mui/material';
-import capitalise from '../util/table_data_handler';
+import capitaliseWithSpacing from '../util/table_data_handler';
 
 function RaceInfo(props) {
 
@@ -11,7 +11,7 @@ function RaceInfo(props) {
     var additionalData = {
         Date: date,
         Time: time,
-        Local: userDateTime.toLocaleString()
+        MyTime: userDateTime.toLocaleString()
     }
 
     return (
@@ -31,7 +31,7 @@ function RaceInfo(props) {
                                             sx={{ '&:last-child td, &:last-child th': { border: 0 },}}
                                         >
                                             <TableCell align="left" component="th" scope="row" width="50%" sx={{paddingLeft:"25%"}}>
-                                                <strong>{capitalise(key)}</strong>
+                                                <strong>{capitaliseWithSpacing(key)}</strong>
                                             </TableCell>
                                             <TableCell align="left">
                                                 {props.raceInfo[key]}
@@ -49,7 +49,7 @@ function RaceInfo(props) {
                                             sx={{ '&:last-child td, &:last-child th': { border: 0 },}}
                                         >
                                             <TableCell align="left" component="th" scope="row" width="50%" sx={{paddingLeft:"25%"}}>
-                                                <strong>{capitalise(key)}</strong>
+                                                <strong>{capitaliseWithSpacing(key)}</strong>
                                             </TableCell>
                                             <TableCell align="left">
                                                 {additionalData[key]}

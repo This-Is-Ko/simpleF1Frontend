@@ -19,16 +19,19 @@ import ConstructorsChampionshipTable from '../components/constructors_championsh
 
 const theme = createTheme({
     components: {
-      MuiTypography: {
-        styleOverrides: {
-          h4: {
-            fontFamily: "'Libre Franklin', sans-serif;",
-          },
-          subtitle1: {
-            fontFamily: "'Libre Franklin', sans-serif;",
-          },
+        MuiTypography: {
+            styleOverrides: {
+                h4: {
+                    fontFamily: "'Libre Franklin', sans-serif;",
+                },
+                subtitle1: {
+                    fontFamily: "'Libre Franklin', sans-serif;",
+                },
+                body1: {
+                    fontFamily: "'Libre Franklin', sans-serif;",
+                },
+            },
         },
-      },
     },
   });
 
@@ -70,7 +73,7 @@ function Home() {
                     <title>Home | Simple F1</title>
                     <meta name='description' content='View the latest F1 Grand Prix statistics including race results, track information and more'/>
                 </Helmet>
-                <Header raceInfo={raceData.race}></Header>
+                <Header raceInfo={""}></Header>
                 <div className='content'>
                     <div className='loading-container'>
                         <CircularProgress size="4rem" sx={{color:"#04789a"}}/>
@@ -86,7 +89,7 @@ function Home() {
                     <title>Home | Simple F1</title>
                     <meta name='description' content='View the latest F1 Grand Prix statistics including race results, track information and more'/>
                 </Helmet>
-                <Header raceInfo={raceData.race}></Header>
+                <Header raceInfo={""}></Header>
                 <div className='content'>
                     <div className='loading-container'>
                         <Typography variant="subtitle1" sx={{paddingTop:"10px", color:"black"}}>🚩 Red flag 🚩</Typography>
