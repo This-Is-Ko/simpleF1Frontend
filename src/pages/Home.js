@@ -72,6 +72,7 @@ function Home() {
                 <Helmet>
                     <title>Home | Simple F1</title>
                     <meta name='description' content='View the latest F1 Grand Prix statistics including race results, track information and more'/>
+                    <link rel="canonical" href="https://www.simplef1.com/"/>
                 </Helmet>
                 <Header raceInfo={""}></Header>
                 <div className='content'>
@@ -88,6 +89,7 @@ function Home() {
                 <Helmet>
                     <title>Home | Simple F1</title>
                     <meta name='description' content='View the latest F1 Grand Prix statistics including race results, track information and more'/>
+                    <link rel="canonical" href="https://www.simplef1.com/"/>
                 </Helmet>
                 <Header raceInfo={""}></Header>
                 <div className='content'>
