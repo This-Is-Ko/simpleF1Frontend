@@ -3,14 +3,21 @@ import { Card, CardContent, Typography, TableContainer, Table, TableBody, TableR
 import capitalise from '../util/table_data_handler';
 
 function NextRaceInfo(props) {
-    var userDateTime = new Date(props.nextRaceInfo.dateTimeUtc);
-    var raceDateTime = (new Date(props.nextRaceInfo.raceDateTime)).toLocaleString();
-    var date = (raceDateTime.split(", "))[0]
-    var time = (raceDateTime.split(", "))[1]
     var additionalData = {
-        Date: date,
-        Time: time,
-        Local: userDateTime.toLocaleString()
+        Date: "-",
+        Time: "-",
+        Local: "-"
+    }
+    if (props.nextRaceInfo.dateTimeUtc !== "-") {
+        var userDateTime = new Date(props.nextRaceInfo.dateTimeUtc);
+        var raceDateTime = (new Date(props.nextRaceInfo.raceDateTime)).toLocaleString();
+        var date = (raceDateTime.split(", "))[0]
+        var time = (raceDateTime.split(", "))[1]
+        additionalData = {
+            Date: date,
+            Time: time,
+            Local: userDateTime.toLocaleString()
+        }
     }
 
     return (
