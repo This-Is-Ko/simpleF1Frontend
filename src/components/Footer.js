@@ -13,7 +13,7 @@ return (
             &nbsp;&nbsp;|&nbsp;&nbsp;
             <MuiLink sx={{ color:"grey" }} variant="caption" underline="none" href={"mailto:" + process.env.REACT_APP_CONTACT_EMAIL}>Contact</MuiLink>
         </Typography>
-        <Typography sx={{ color:"grey" }} variant="caption" component="div">
+        <Typography sx={{ color:"grey", paddingBottom:"5px" }} variant="caption" component="div">
             All images belong to their rightful owners
         </Typography>
     </footer>
